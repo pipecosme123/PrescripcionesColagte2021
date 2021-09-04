@@ -1,0 +1,151 @@
+.Prescripcion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    padding: 2em;
+    /* width: 100%;
+    height: auto; */
+}
+
+.Prescripcion .ipt{
+    display: flex;
+    align-self: flex-start;
+}
+
+.Prescripcion .ipt .inputs, .Prescripcion .ipt .inputsTxt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputs{
+    margin-left: 2em;
+}
+
+.Prescripcion .inputs p {
+    margin: 1em 0;
+
+}
+
+.inputText {
+    width: 300px;
+    border: 0;
+    border-bottom: 1px solid #76787b;
+    outline: none;
+    background: transparent;
+}
+
+.inputText1:focus, .textarea1:focus {
+    border-bottom: 2px solid #33bdec;
+}
+
+.inputText2:focus, .textarea2:focus {
+    border-bottom: 2px solid #5bc0a4;
+}
+
+.inputText3:focus, .textarea3:focus {
+    border-bottom: 2px solid #c3b632;
+}
+
+.inputText4:focus, .textarea4:focus {
+    border-bottom: 2px solid #5683c3;
+}
+
+.inputText5:focus, .textarea5:focus {
+    border-bottom: 2px solid #d52027;
+}
+
+button.Prescripcionbtn{
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 1.3em;
+    width: 8em;
+    color: #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Prescripcion img.imgRX{
+    width: 2em;
+    position: absolute;
+    left: 3em;
+    top: 12em
+}
+
+button.Prescripcionbtn:hover{
+    transform: scale(1.03);
+}
+
+button.Prescripcionbtn.btn1 {
+    background: #33bdec;
+}
+
+button.Prescripcionbtn.btn2 {
+    background: #5bc0a4;
+}
+
+button.Prescripcionbtn.btn3 {
+    background: #c3b632;
+}
+
+button.Prescripcionbtn.btn4 {
+    background: #5683c3;
+}
+
+button.Prescripcionbtn.btn5 {
+    background: #d52027;
+}
+
+textarea{
+    width: 90%;
+    height: 6em;
+    resize: none;
+    outline: none;
+    border-bottom: 1px solid #76787b;
+    padding: 0.5em;
+    margin-bottom: 2em;
+    border-radius: 10px;
+}
+
+.textarea1:focus {
+    border: 2px solid #33bdec;
+}
+
+.textarea2:focus {
+    border: 2px solid #5bc0a4;
+}
+
+.textarea3:focus {
+    border: 2px solid #c3b632;
+}
+
+.textarea4:focus {
+    border: 2px solid #5683c3;
+}
+
+.textarea5:focus {
+    border: 2px solid #d52027;
+}
+
+@media only screen and (max-width: 480px) {
+    .Prescripcion .inputs p {
+        width: 100%;
+    }
+
+    .Prescripcion img.imgRX{
+        width: 1em;
+        left: 2em;
+        top: 15em
+    }
+
+    .inputs{
+        margin-left: 10px;
+    }
+
+    .inputText {
+        width: 100%;
+    }
+}

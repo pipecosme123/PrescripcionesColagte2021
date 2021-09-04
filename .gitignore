@@ -1,0 +1,24 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+prescipciones/node_modules
+api/node_modules
+prescipciones/.pnp
+prescipciones/.pnp.js
+
+# testing
+prescipciones//coverage
+
+# production
+prescipciones//build
+
+# misc
+prescipciones/.DS_Store
+prescipciones/.env.local
+prescipciones/.env.development.local
+prescipciones/.env.test.local
+prescipciones/.env.production.local
+
+prescipciones/npm-debug.log*
+prescipciones/yarn-debug.log*
+prescipciones/yarn-error.log*
