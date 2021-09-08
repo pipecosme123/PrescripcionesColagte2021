@@ -3,14 +3,15 @@
 # dependencies
 prescipciones/node_modules
 api/node_modules
+api/uploads
 prescipciones/.pnp
 prescipciones/.pnp.js
 
 # testing
-prescipciones//coverage
+prescipciones/coverage
 
 # production
-prescipciones//build
+prescipciones/build
 
 # misc
 prescipciones/.DS_Store

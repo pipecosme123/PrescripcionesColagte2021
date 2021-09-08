@@ -1,32 +1,50 @@
 .Prescripcion {
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #fff;
     padding: 2em;
-    /* width: 100%;
-    height: auto; */
 }
 
-.Prescripcion .ipt{
+.contentPrescripcion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.noVisible {
+    display: none;
+}
+
+.Prescripcion h2 {
+    margin: 0 0 1em 0;
+    text-align: center;
+}
+
+.Prescripcion .ipt,
+.imgPrescripcion .imgIpt {
     display: flex;
     align-self: flex-start;
+    height: 90px;
+    margin-top: 1em;
 }
 
-.Prescripcion .ipt .inputs, .Prescripcion .ipt .inputsTxt{
+.Prescripcion .ipt .inputs,
+.Prescripcion .ipt .inputsTxt {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.inputs{
+.inputs {
     margin-left: 2em;
 }
 
 .Prescripcion .inputs p {
     margin: 1em 0;
-
 }
 
 .inputText {
@@ -37,27 +55,27 @@
     background: transparent;
 }
 
-.inputText1:focus, .textarea1:focus {
+.inputText1:focus {
     border-bottom: 2px solid #33bdec;
 }
 
-.inputText2:focus, .textarea2:focus {
+.inputText2:focus {
     border-bottom: 2px solid #5bc0a4;
 }
 
-.inputText3:focus, .textarea3:focus {
+.inputText3:focus {
     border-bottom: 2px solid #c3b632;
 }
 
-.inputText4:focus, .textarea4:focus {
+.inputText4:focus {
     border-bottom: 2px solid #5683c3;
 }
 
-.inputText5:focus, .textarea5:focus {
+.inputText5:focus {
     border-bottom: 2px solid #d52027;
 }
 
-button.Prescripcionbtn{
+button.Prescripcionbtn {
     padding: 0.5em;
     font-weight: bold;
     font-size: 1.3em;
@@ -68,14 +86,14 @@ button.Prescripcionbtn{
     transition: 0.3s;
 }
 
-.Prescripcion img.imgRX{
+.Prescripcion img.imgRX {
     width: 2em;
     position: absolute;
-    left: 3em;
-    top: 12em
+    right: 11em;
+    top: 10em
 }
 
-button.Prescripcionbtn:hover{
+button.Prescripcionbtn:hover {
     transform: scale(1.03);
 }
 
@@ -99,53 +117,130 @@ button.Prescripcionbtn.btn5 {
     background: #d52027;
 }
 
-textarea{
+p.recomendations {
+    margin-bottom: 2em;
+    text-align: right !important;
+}
+
+textarea {
     width: 90%;
-    height: 6em;
+    height: 8em;
+    overflow-y: hidden;
     resize: none;
     outline: none;
     border-bottom: 1px solid #76787b;
     padding: 0.5em;
     margin-bottom: 2em;
     border-radius: 10px;
+    font-family: "ColgateReady-Regular";
 }
 
-.textarea1:focus {
+p.observaciones{
+    width: 100%;
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+.textarea1,
+p.observaciones1 {
     border: 2px solid #33bdec;
 }
 
-.textarea2:focus {
+.textarea2,
+p.observaciones2 {
     border: 2px solid #5bc0a4;
 }
 
-.textarea3:focus {
+.textarea3,
+p.observaciones3 {
     border: 2px solid #c3b632;
 }
 
-.textarea4:focus {
+.textarea4,
+p.observaciones4 {
     border: 2px solid #5683c3;
 }
 
-.textarea5:focus {
+.textarea5,
+p.observaciones5 {
     border: 2px solid #d52027;
 }
 
+/* ////////////////////// */
+
+.PrescripcionGeneral {
+    margin-bottom: 10em;
+    color: transparent;
+}
+
+.Prescripcion.imgPrescripcion {
+    width: 750px;
+    height: auto;
+    justify-content: flex-start;
+
+}
+
+.Prescripcion.imgPrescripcion h2 {
+    margin: 0 0 2em 0;
+    text-align: center;
+}
+
+.Prescripcion.imgPrescripcion .imgIpt .imgInputs {
+    margin: 0 32px;
+}
+
+.Prescripcion.imgPrescripcion .imgIpt .imgInputs p {
+    margin: 0 0;
+}
+
+.imgPrescripcion p.observaciones {
+    width: 90%;
+    padding: 16px;
+    font-family: "ColgateReady-Regular";
+    border-radius: 16px;
+}
+
+/* ////////////////////////////// */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
 @media only screen and (max-width: 480px) {
+
+    .Prescripcion {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        padding: 1em;
+    }
+
     .Prescripcion .inputs p {
         width: 100%;
     }
 
-    .Prescripcion img.imgRX{
+    .Prescripcion img.imgRX {
         width: 1em;
         left: 2em;
         top: 15em
     }
 
-    .inputs{
+    .inputs {
         margin-left: 10px;
     }
 
     .inputText {
         width: 100%;
+    }
+
+    p.recomendations {
+        margin-bottom: 2em;
+        text-align: center !important;
+        font-size: 0.8em;
     }
 }

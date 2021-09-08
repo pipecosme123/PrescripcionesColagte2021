@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/App.css";
 import Prescripcion from "./Prescripcion";
 // import FormatoPrescripciones from "./FormatoPrescripciones";
-import { Productos_Especializados, Productos_Ortodoncia, Productos_RégimenDiario, Productos_Hipersensibilidad_Dental, Productos_Blanqueaminto_Dental } from "../Constants/Product"
+import { Productos_Especializados, Productos_Ortodoncia, Productos_HigieneBucalDiario, Productos_Hipersensibilidad_Dental, Productos_Blanqueaminto_Dental } from "../Constants/Product"
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -29,7 +29,7 @@ function Tabs() {
         </button>
 
         <button className={toggleState === 3 ? "tabs active-tabs tabs3" : "tabs"} onClick={() => toggleTab(3)}>
-          {Productos_RégimenDiario.shortTitle}
+          {Productos_HigieneBucalDiario.shortTitle}
         </button>
 
         <button className={toggleState === 4 ? "tabs active-tabs tabs4" : "tabs"} onClick={() => toggleTab(4)}>
@@ -54,7 +54,7 @@ function Tabs() {
 
         <div
           className={toggleState === 3 ? "content3 active-content" : "content"}>
-          <Prescripcion data={Productos_RégimenDiario} num="3"></Prescripcion>
+          <Prescripcion data={Productos_HigieneBucalDiario} num="3"></Prescripcion>
         </div>
 
         <div

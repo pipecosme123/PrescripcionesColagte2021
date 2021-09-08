@@ -7,8 +7,13 @@
     padding: 0 1em;
 }
 
-[type="checkbox"] {
+
+[type="checkbox"], .noSelected, .productNoVisible {
     display: none;
+}
+
+.isVisible{
+    display: block;
 }
 
 label {
@@ -23,9 +28,30 @@ label::before {
     width: 1em;
     height: 1em;
     position: absolute;
+    left: 20px;
+    top: 50%;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+label.label_2::before {
+    content: "";
+    border: 1px solid #ff0000;
+    border-radius: 3px;
+    width: 1em;
+    height: 1em;
+    position: absolute;
     left: 0px;
     top: 50%;
     transition: 0.3s;
+}
+
+[type="checkbox"]:checked+label::before {
+    display: block;
+    width: 1.2em;
+    height: 1.2em;
+    padding: 2px;
+    content: '';
 }
 
 [type="checkbox"]:checked+label::before {
@@ -62,13 +88,18 @@ label::before {
     justify-content: center;
 }
 
-.prod .imgProduct img {
+.prod .imgProduct.vertical img {
     width: auto;
-    height: 80px;
+    height: 8.125em;
+}
+
+.prod .imgProduct.horizontal img {
+    width: 12.5em;
+    height: auto;
 }
 
 .textProuct {
-    width: 30em;
+    width: 20em;
 }
 
 .textProuct h3 {
@@ -78,6 +109,7 @@ label::before {
 .textProuct p {
     font-family: "ColgateReady-Regular";
 }
+
 
 @media only screen and (max-width: 480px) {
     .Productos,
@@ -89,7 +121,11 @@ label::before {
     }
 
     .textProuct {
-        width: 80%;
+        width: 100%;
+    }
+
+    .textProuct p{
+        font-size: 0.8em;
     }
 
     .label {
@@ -97,7 +133,7 @@ label::before {
     }
 
     label {
-        padding-left: 0em;
+        padding-left: -2em;
         position: relative;
     }
 }
