@@ -9,6 +9,8 @@ app.use(cors({origin: 'http://localhost:3000'}));
 
 app.use('/uploads', express.static(__dirname + '/uploads'));
 
+app.use(express.static('public'));
+
 app.use(express.json({
     limit: '50mb'
 }));
@@ -20,7 +22,25 @@ app.use(express.urlencoded({
 app.get('/', (req, res) => {
     // console.log(__dirname + "/views/index.html");  + ""
     res.sendFile(__dirname + "/views/index.html");
-})
+});
+
+app.get('/image/:id', (req, res) => {
+    fs.readFile("./views/index.html", (err, html) => {
+        var htmlString = html.toString();
+
+        var variable = htmlString.match(/[^\{\}]+(?=\})/g);
+        var link = req.params.id;
+
+        for (var i = 0; i < variable.length; i++) {
+            var value = eval(variable[i]);
+            htmlString = htmlString.replace("{"+variable[i]+"}", value);            
+        };
+
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(htmlString);
+        res.end();
+    });
+});
 
 app.post("/files", (req, res) => {
 
@@ -42,8 +62,9 @@ app.post("/files", (req, res) => {
                     status: err
                 });
             } else {
+                let url = `${__dirname}/image/${nameImg}`
                 res.send({
-                    status: `${__dirname}/uploads/${nameImg}`
+                    status: url
                 });
             }
         });

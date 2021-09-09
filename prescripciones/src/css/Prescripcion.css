@@ -19,6 +19,10 @@
     display: none;
 }
 
+.Prescripcion .iptMovil{
+    display: none;
+}
+
 .Prescripcion h2 {
     margin: 0 0 1em 0;
     text-align: center;
@@ -117,6 +121,38 @@ button.Prescripcionbtn.btn5 {
     background: #d52027;
 }
 
+
+p.link1 {
+    color: #33bdec;
+}
+
+p.link2 {
+    color: #5bc0a4;
+}
+
+p.link3 {
+    color: #c3b632;
+}
+
+p.link4 {
+    color: #5683c3;
+}
+
+p.link5 {
+    color: #d52027;
+}
+
+div.contentLink{
+    width: 90%;
+    text-align: center;
+}
+
+p.pLink{  
+    margin-bottom: 1em;
+    width: 100%;
+    word-break: break-all;
+}
+
 p.recomendations {
     margin-bottom: 2em;
     text-align: right !important;
@@ -126,7 +162,7 @@ textarea {
     width: 90%;
     height: 8em;
     overflow-y: hidden;
-    resize: none;
+    /* resize: none; */
     outline: none;
     border-bottom: 1px solid #76787b;
     padding: 0.5em;
@@ -220,13 +256,26 @@ input:-webkit-autofill:active {
         padding: 1em;
     }
 
+    .Prescripcion .ipt{
+        display: none;
+    }
+
+    .Prescripcion .iptMovil{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 160px;
+        margin-top: 1em;
+    }
+
     .Prescripcion .inputs p {
         width: 100%;
     }
 
     .Prescripcion img.imgRX {
         width: 1em;
-        left: 2em;
+        right: 2em;
         top: 15em
     }
 
@@ -241,6 +290,12 @@ input:-webkit-autofill:active {
     p.recomendations {
         margin-bottom: 2em;
         text-align: center !important;
+        font-size: 0.8em;
+    }
+
+    textarea {
+        width: 100%;
+        height: 15rem;
         font-size: 0.8em;
     }
 }
