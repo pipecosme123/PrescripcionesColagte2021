@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Producto from './Producto';
 import * as htmlToImage from 'html-to-image';
 import { LogoRX } from "../Constants/Images";
 import Swal from 'sweetalert2'
-import copy from 'copy-to-clipboard';
+// import copy from 'copy-to-clipboard';
 import "../css/Prescripcion.css";
 
 const Prescripcion = ({ data, num }) => {
@@ -22,53 +22,32 @@ const Prescripcion = ({ data, num }) => {
   const Actual = fecha.toLocaleDateString();
 
   const ref = useRef(HTMLDivElement);
-  var link = document.createElement('a');
+
 
   const createImage = (idA) => {
 
     setIsVisible(true);
 
-    setTimeout(() => {
-      htmlToImage.toJpeg(document.getElementById(`my-node${num}`), { quality: 0.95 })
-        .then(async (dataUrl) => {
-          let name = data.imgTitle;
+    htmlToImage.toJpeg(document.getElementById(`my-node${num}`), { quality: 0.95 })
+      .then(async (dataUrl) => {
 
-          link.download = name;
-          link.href = dataUrl;
+        let name = data.imgTitle;
 
-          // setTimeout(async () => { https://prescripcionescolgate.col1.co/apiPrescripciones/files  /apiPrescripciones/files
-          let res = await axios.post('https://prescripcionescolgate.col1.co/apiPrescripciones/files', {
-            nameImagen: name,
-            imagen: dataUrl
-          })
+        var link = document.createElement('a');
+        link.download = name;
+        link.href = dataUrl;
+        link.click();
 
-          if (res.data.status !== 'err') {
-            let cadena = res.data.status.replace('/home/kagencia/', 'https://');
-            setInfoPrescipcion({ link: cadena });
-            copy(cadena);
+        Swal.fire({
+          title: '¡Felicitaciones!',
+          html: `<p>La imagen de su prescripción ha sido creada correctamente</p> <br> 
+            <p style="font-size: 0.8em">Esta imagen debe enviarla a su paciente.</p>`,
+          icon: 'success',
+          confirmButtonText: "OK"
+        })
 
-            Swal.fire({
-              title: '¡Felicitaciones!',
-              html: `<p style="font-size: 0.8em">La imagen de la prescripción ha sido creada correctamente, el link para acceder a ella ya ha sido copiado automaticamente, sino se copio, puede copiar el enlace que aparece a continuación.</p> <br> 
-              <p style="font-size: 1em" class="link${idA}">${cadena}</p> <br> 
-              <p style="font-size: 0.8em">Este link debe enviarlo a su paciente.</p>`,
-              icon: 'success',
-              confirmButtonText: "OK"
-            })
-
-          } else {
-            Swal.fire({
-              title: 'Error!',
-              text: 'La imagen de tu prescripción no ha sido creada correctamente, vuelve a intentarlo.',
-              icon: 'error',
-              confirmButtonText: "OK"
-            })
-          }
-          setIsVisible(false);
-          // }, 300);
-        });
-    }, 300);
-
+        setIsVisible(false);
+      });
   }
 
   const handleChange = e => {
